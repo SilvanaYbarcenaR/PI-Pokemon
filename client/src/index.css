@@ -1,8 +1,32 @@
+@font-face {
+  font-family: 'Pokemon Solid';
+  src: url('./assets/fonts/PokemonSolidNormal.eot');
+  src: url('./assets/fonts/PokemonSolidNormal.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PokemonSolidNormal.woff2') format('woff2'),
+      url('./assets/fonts/PokemonSolidNormal.woff') format('woff'),
+      url('./assets/fonts/PokemonSolidNormal.ttf') format('truetype'),
+      url('./assets/fonts/PokemonSolidNormal.svg#PokemonSolidNormal') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pokemon Hollow';
+  src: url('./assets/fonts/PokemonHollowNormal.eot');
+  src: url('./assets/fonts/PokemonHollowNormal.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PokemonHollowNormal.woff2') format('woff2'),
+      url('./assets/fonts/PokemonHollowNormal.woff') format('woff'),
+      url('./assets/fonts/PokemonHollowNormal.ttf') format('truetype'),
+      url('./assets/fonts/PokemonHollowNormal.svg#PokemonHollowNormal') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +34,29 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+/* Scrollbar */
+ /* Firefox */
+ * {
+  scrollbar-width: auto;
+  scrollbar-color: rgba(255,255,255,0.2) #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 10px;
 }
