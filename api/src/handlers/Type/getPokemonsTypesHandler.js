@@ -1,12 +1,12 @@
-const pokemonsTypesController = require("../../controllers/Type/pokemonsTypesController");
+const getPokemonsTypesController = require("../../controllers/Type/getPokemonsTypesController");
 
 const getPokemonsTypes = async (req, res) => {
   try {
-    const types = await pokemonsTypesController();
+    const types = await getPokemonsTypesController();
     res.status(200).json(types);
   }
   catch(error) {
-    res.status(400).send({ error: error.message });
+    res.status(500).send({ error: error.message });
   }
 }
 

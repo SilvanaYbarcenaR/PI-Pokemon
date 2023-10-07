@@ -7,7 +7,7 @@ const URL = "https://pokeapi.co/api/v2/pokemon/";
 const getPokemonByNameController = async (name) => {
   const pokemonByNameDB = await Pokemon.findOne({
     where: {
-      name: {[Op.iLike]: `%${name}%`}
+      name: {[Op.iLike]: `${name}`}
     },
     include: {
       model: Type,

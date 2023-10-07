@@ -2,7 +2,7 @@ const { Type } = require("../../db");
 const axios = require("axios");
 const URL = 'https://pokeapi.co/api/v2/type';
 
-const pokemonsTypesController = async () => {
+const getPokemonsTypesController = async () => {
   let types = await Type.findAll({
     attributes: ["id", "name"]
   })
@@ -19,4 +19,4 @@ const pokemonsTypesController = async () => {
   return types;
 }
 
-module.exports = pokemonsTypesController;
+module.exports = getPokemonsTypesController;

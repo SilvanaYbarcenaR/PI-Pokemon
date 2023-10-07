@@ -14,11 +14,13 @@
     z-index: -1;
   }
   .principalTitle {
-    color: #ffffff;
-    font-size: 2.8rem;
+    color: #3d59a6;
+    font-family: 'Pokemon Hollow';
+    font-size: 3.1rem;
     font-weight: 900;
-    text-shadow: 0 0 30px black;
-    margin-bottom: 1.2rem;
+    letter-spacing: 8px;
+    text-shadow: 1px 3px 1px #ffcc02;
+    margin-bottom: -0.4rem;
     text-transform: uppercase;
     animation: 0.5s cubic-bezier(.65,.1,.33,.87) show forwards;
   }
@@ -55,8 +57,8 @@
     opacity: 0;
     position: relative;
     box-shadow: -10px 0 80px rgba(255,204,2,0.5), 10px 0 80px rgba(255,204,2,0.5);
-    height: 12rem;
-    width: 12rem;
+    height: 9em;
+    width: 9em;
     animation: 0.5s cubic-bezier(.65,.1,.33,.87) 0.7s zoom forwards;
   }
   .btnPokemon .btnGroup .ball button:hover {

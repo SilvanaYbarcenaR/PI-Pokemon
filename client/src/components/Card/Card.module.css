@@ -1,0 +1,7 @@
+/* Cards styles */
+.card {
+  background: red;
+  flex: 1 1 30%;
+  text-align: center;
+  margin: 1em;
+}

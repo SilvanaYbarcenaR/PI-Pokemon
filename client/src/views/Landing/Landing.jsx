@@ -7,7 +7,7 @@ const Landing = () => {
   return (
     <div className={landingStyles.landingContainer}>
       <video className={landingStyles.videoBg} autoPlay loop muted>
-        <source src={`${video}#t=180,420`} type="video/mp4"/>
+        <source src={`${video}#t=190,420`} type="video/mp4"/>
       </video>
       <div className={landingStyles.pokemonTextContainer}>
         <h1 className={landingStyles.principalTitle}>Welcome to</h1>

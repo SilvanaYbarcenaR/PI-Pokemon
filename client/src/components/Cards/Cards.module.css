@@ -1,0 +1,5 @@
+/* Cards styles */
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+}

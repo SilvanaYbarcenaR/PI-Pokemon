@@ -2,7 +2,6 @@ const axios = require("axios");
 
 // Changing pokemon object attributes
 const clearPokemonDB = (pokemon) => {
-console.log(pokemon.Types);
   return {
     id: pokemon.id,
     name: pokemon.name,

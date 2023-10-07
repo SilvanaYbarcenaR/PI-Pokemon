@@ -1,6 +1,7 @@
 const axios = require("axios");
 const fillPokemonAttributes = require("../../helpers/fillPokemonAttributes");
-const URL = 'https://pokeapi.co/api/v2/pokemon';
+const URL = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=100';
+/* const URL = 'https://pokeapi.co/api/v2/pokemon'; */
 
 const getPokemonsApiController = async () => {
   const { data } = await axios.get(`${URL}`);

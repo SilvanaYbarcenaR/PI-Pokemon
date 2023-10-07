@@ -3,6 +3,7 @@ const getPokemonByNameController = require("../../controllers/Pokemon/getPokemon
 
 const getAllPokemonsHandler = async (req, res) => {
   let { name } = req.query;
+  
   if (name) {
     try {
       let pokemonName = await getPokemonByNameController(name.toLocaleLowerCase());
@@ -16,7 +17,7 @@ const getAllPokemonsHandler = async (req, res) => {
       res.status(200).json(pokemonsData);
     }
     catch(error) {
-      res.status(400).send({ error: error.message });
+      res.status(500).send({ error: error.message });
     }
   }
 }
