@@ -9,14 +9,12 @@ const getPokemonsTypesController = async () => {
   if(!types.length) {
     const { data } = await axios.get(URL);
     types = await data.results;
-    for(const type of types) {
-      const typeUrl = await axios.get(type.url);
-      delete type.url;
-      type.id = typeUrl.data.id;
-    }
     await Type.bulkCreate(types);
   }
-  return types;
+  let typesArray = types?.map( type => {
+    return type['name'];
+  })
+  return typesArray;
 }
 
 module.exports = getPokemonsTypesController;

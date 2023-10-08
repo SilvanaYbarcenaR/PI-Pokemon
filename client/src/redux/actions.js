@@ -1,5 +1,6 @@
 import axios from "axios";
-import { GET_POKEMONS, GET_TYPES, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, PAGINATE } from "./action-types";
+import { GET_POKEMONS, GET_TYPES, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, 
+PAGINATE, FILTER_BY_TYPES, ORDER_ALPHABETICALLY, FILTER_BY_ORIGIN, FILTER_BY_ATTACK } from "./action-types";
 
 const getPokemons = () => {
   const endpoint = 'http://localhost:3001/pokemons/';
@@ -83,10 +84,66 @@ const paginatePokemons = (order) => {
   }
 }
 
+const filterByTypes = (type) => {
+  return async (dispatch) => {
+    try {
+      return dispatch({
+        type: FILTER_BY_TYPES,
+        payload: type,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+}
+
+const filterByOrder = (order) => {
+  return async (dispatch) => {
+    try {
+      return dispatch({
+        type: ORDER_ALPHABETICALLY,
+        payload: order,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+}
+
+const filterByOrigin = (created) => {
+  return async (dispatch) => {
+    try {
+      return dispatch({
+        type: FILTER_BY_ORIGIN,
+        payload: created,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+}
+
+const filterByAttack = (attack) => {
+  return async (dispatch) => {
+    try {
+      return dispatch({
+        type: FILTER_BY_ATTACK,
+        payload: attack,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+}
+
 export {
   getPokemons,
   getTypes,
   getPokemonById,
   getPokemonByName,
-  paginatePokemons
+  paginatePokemons,
+  filterByTypes,
+  filterByOrder,
+  filterByOrigin,
+  filterByAttack
 }
