@@ -6,11 +6,15 @@ import { useParams } from 'react-router-dom';
 const Detail = () => {
   const id = useParams().id;
   const dispatch = useDispatch();
-  const pokemonById = useSelector((state) => state.pokemonById);
+  let pokemonById = useSelector((state) => state.pokemonById);
 
   useEffect(() => {
     dispatch(getPokemonById(id));
+    return () => {
+      
+    }
   }, [])
+  
 
   return (
     <div>

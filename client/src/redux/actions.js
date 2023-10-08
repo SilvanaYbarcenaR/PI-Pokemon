@@ -47,8 +47,8 @@ const getPokemonById = (id) => {
 }
 
 const getPokemonByName = (name) => {
-  const endpoint = `http://localhost:3001/pokemons/?name=${name}`;
   if (name) {
+    const endpoint = `http://localhost:3001/pokemons/?name=${name}`;
     return async (dispatch) => {
       try {
         const { data } = await axios.get(endpoint);
@@ -60,12 +60,11 @@ const getPokemonByName = (name) => {
         console.log(error.response.data.error);
       }
     }
-  }
-  else {
+  } else {
     return async (dispatch) => {
       return dispatch({
         type: GET_POKEMON_BY_NAME,
-        payload: name,
+        payload: undefined,
       });
     }
   }

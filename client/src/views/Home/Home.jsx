@@ -7,6 +7,8 @@ import Cards from '../../components/Cards/Cards';
 const Home = () => {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.allPokemons);
+  const isFirstPage = useSelector((state) => state.isFirstPage);
+  const isLastPage = useSelector((state) => state.isLastPage);
   const paginate = (event) => {
     dispatch(paginatePokemons(event.target.name));
   }
@@ -15,11 +17,13 @@ const Home = () => {
     dispatch(getPokemons());
   }, [])
 
+  
+
   return (
     <>
       <div>
-        <button name="prev" onClick={paginate}>Prev</button>
-        <button name="next" onClick={paginate}>Next</button>
+        {!isFirstPage && <button name="prev" onClick={paginate}>Prev</button>}
+        {!isLastPage && <button name="next" onClick={paginate}>Next</button>}
       </div>
       <Cards allPokemons={allPokemons} />
     </>

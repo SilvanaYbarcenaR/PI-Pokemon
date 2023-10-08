@@ -1,9 +1,12 @@
 import React from 'react'
 import Searchbar from '../Searchbar/Searchbar'
+import { useLocation } from 'react-router-dom'
 
 const Navbar = () => {
+  const currentPath = useLocation();
+
   return (
-    <Searchbar/>
+    currentPath.pathname === "/home" && <Searchbar/>
   )
 }
 
