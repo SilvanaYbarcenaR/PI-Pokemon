@@ -6,7 +6,7 @@ let initialState = {
   pokemonById: {},
   allPokemonsBackup: [],
   currentPage: 0,
-  isFirstPage: false,
+  isFirstPage: true,
   isLastPage: false
 }
 
@@ -39,7 +39,7 @@ const reducer = (state = initialState, {type, payload}) => {
         allPokemons: [...state.allPokemonsBackup].splice(firstIndex, ITEMS_PER_PAGE),
         currentPage: payload === "next" ? nextPage : prevPage,
         isFirstPage: payload === "prev" && prevPage < 1 ? true : false,
-        isLastPage: payload === "next" && firstIndex >= state.allPokemonsBackup.length - 1 ? true : false
+        isLastPage: payload === "next" && firstIndex >= state.allPokemonsBackup.length - ITEMS_PER_PAGE ? true : false
       }
     default:
       return {...state}

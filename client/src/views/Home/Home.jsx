@@ -17,13 +17,11 @@ const Home = () => {
     dispatch(getPokemons());
   }, [])
 
-  
-
   return (
     <>
       <div>
-        {!isFirstPage && <button name="prev" onClick={paginate}>Prev</button>}
-        {!isLastPage && <button name="next" onClick={paginate}>Next</button>}
+        <button name="prev" onClick={paginate} disabled={isFirstPage}>Prev</button>
+        <button name="next" onClick={paginate} disabled={isLastPage}>Next</button>
       </div>
       <Cards allPokemons={allPokemons} />
     </>
