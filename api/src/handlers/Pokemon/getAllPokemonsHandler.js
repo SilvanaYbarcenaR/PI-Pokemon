@@ -6,7 +6,7 @@ const getAllPokemonsHandler = async (req, res) => {
   
   if (name) {
     try {
-      let pokemonName = await getPokemonByNameController(name.toLocaleLowerCase());
+      let pokemonName = await getPokemonByNameController(name.toLowerCase());
       res.status(200).json(pokemonName);
     } catch (error) {
       res.status(400).send({ error: error.message });
