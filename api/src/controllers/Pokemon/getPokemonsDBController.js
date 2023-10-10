@@ -23,7 +23,7 @@ const getPokemonsDBController = async () => {
         types: pokemon.Types.map((type) => type.name),
         created: pokemon.created,
       };
-    });
+    }).reverse();
   }
 };
 
