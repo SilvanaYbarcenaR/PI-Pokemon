@@ -1,6 +1,6 @@
 import axios from "axios";
 import { GET_POKEMONS, GET_TYPES, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, 
-PAGINATE, FILTER_BY_TYPES, ORDER_ALPHABETICALLY, FILTER_BY_ORIGIN, FILTER_BY_ATTACK } from "./action-types";
+PAGINATE, FILTER_BY_TYPES, ORDER_ALPHABETICALLY, FILTER_BY_ORIGIN, FILTER_BY_ATTACK, CLEAR_PAGINATION } from "./action-types";
 
 const getPokemons = () => {
   const endpoint = 'http://localhost:3001/pokemons/';
@@ -12,7 +12,7 @@ const getPokemons = () => {
         payload: data,
       });
     } catch (error) {
-      console.log(error.response.data.error);
+      console.log(error.message);
     }
   };
 };
@@ -22,12 +22,12 @@ const getTypes = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(endpoint);
-      return dispatch({
+      dispatch({
         type: GET_TYPES,
         payload: data,
       });
     } catch (error) {
-      console.log(error.response.data.error);
+      console.log(error.message);
     }
   }
 };
@@ -37,12 +37,12 @@ const getPokemonById = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(endpoint);
-      return dispatch({
+      dispatch({
         type: GET_POKEMON_BY_ID,
         payload: data,
       });
     } catch (error) {
-      console.log(error.response.data.error);
+      console.log(error.message);
     }
   }
 }
@@ -53,7 +53,7 @@ const getPokemonByName = (name) => {
     return async (dispatch) => {
       try {
         const { data } = await axios.get(endpoint);
-        return dispatch({
+        dispatch({
           type: GET_POKEMON_BY_NAME,
           payload: data,
         });
@@ -63,7 +63,7 @@ const getPokemonByName = (name) => {
     }
   } else {
     return async (dispatch) => {
-      return dispatch({
+      dispatch({
         type: GET_POKEMON_BY_NAME,
         payload: undefined,
       });
@@ -74,12 +74,12 @@ const getPokemonByName = (name) => {
 const paginatePokemons = (order) => {
   return async (dispatch) => {
     try {
-      return dispatch({
+      dispatch({
         type: PAGINATE,
         payload: order,
       });
     } catch (error) {
-      console.log(error.response.data.error);
+      console.log(error.message);
     }
   }
 }
@@ -87,12 +87,12 @@ const paginatePokemons = (order) => {
 const filterByTypes = (type) => {
   return async (dispatch) => {
     try {
-      return dispatch({
+      dispatch({
         type: FILTER_BY_TYPES,
         payload: type,
       });
     } catch (error) {
-      console.log(error.response.data.error);
+      console.log(error.message);
     }
   }
 }
@@ -100,12 +100,12 @@ const filterByTypes = (type) => {
 const filterByOrder = (order) => {
   return async (dispatch) => {
     try {
-      return dispatch({
+      dispatch({
         type: ORDER_ALPHABETICALLY,
         payload: order,
       });
     } catch (error) {
-      console.log(error.response.data.error);
+      console.log(error.message);
     }
   }
 }
@@ -113,12 +113,12 @@ const filterByOrder = (order) => {
 const filterByOrigin = (created) => {
   return async (dispatch) => {
     try {
-      return dispatch({
+      dispatch({
         type: FILTER_BY_ORIGIN,
         payload: created,
       });
     } catch (error) {
-      console.log(error.response.data.error);
+      console.log(error.message);
     }
   }
 }
@@ -126,12 +126,12 @@ const filterByOrigin = (created) => {
 const filterByAttack = (attack) => {
   return async (dispatch) => {
     try {
-      return dispatch({
+      dispatch({
         type: FILTER_BY_ATTACK,
         payload: attack,
       });
     } catch (error) {
-      console.log(error.response.data.error);
+      console.log(error.message);
     }
   }
 }
@@ -143,8 +143,16 @@ const postPokemon = (pokemon) => {
       await axios.post(endpoint, pokemon);
       alert("Pokemon was created successfully.")
     } catch (error) {
-      console.log(error.response.data.error)
+      console.log(error.response.data.message)
     }
+  }
+}
+
+const clearPagination = () => {
+  return async (dispatch) => {
+    dispatch({
+      type: CLEAR_PAGINATION,
+    });
   }
 }
 
@@ -158,5 +166,6 @@ export {
   filterByOrder,
   filterByOrigin,
   filterByAttack,
-  postPokemon
+  postPokemon,
+  clearPagination
 }

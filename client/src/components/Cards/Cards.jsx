@@ -2,11 +2,13 @@ import React from 'react'
 import Card from '../Card/Card';
 import CardsStyles from '../Cards/Cards.module.css'
 
-const Cards = ({allPokemons}) => {
+const Cards = ({pokemons}) => {
   return (
     <div className={CardsStyles.cardsContainer}>
-      {
-        allPokemons?.map(({ id, name, image, types }) => {
+      {!pokemons.length ? 
+        <p>No pokemons were found.</p> 
+        :
+        pokemons?.map(({ id, name, image, types }) => {
           return (
             <Card
               key={id} 

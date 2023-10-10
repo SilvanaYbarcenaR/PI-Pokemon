@@ -6,7 +6,9 @@ import Cards from '../../components/Cards/Cards';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const allPokemons = useSelector((state) => state.allPokemons);
+  const pokemons = useSelector((state) => state.pokemons);
+  const pokemonsFiltered = useSelector((state) => state.pokemonsFiltered);
+  const itemsPerPage = useSelector((state) => state.itemsPerPage);
   const isFirstPage = useSelector((state) => state.isFirstPage);
   const isLastPage = useSelector((state) => state.isLastPage);
   const paginate = (event) => {
@@ -20,10 +22,14 @@ const Home = () => {
   return (
     <>
       <div>
-        <button name="prev" onClick={paginate} disabled={isFirstPage}>Prev</button>
-        <button name="next" onClick={paginate} disabled={isLastPage}>Next</button>
+        {(pokemonsFiltered.length > 0 && pokemonsFiltered.length > itemsPerPage) &&
+          <>
+            <button name="prev" onClick={paginate} disabled={isFirstPage}>Prev</button>
+            <button name="next" onClick={paginate} disabled={isLastPage}>Next</button>
+          </>
+        }
       </div>
-      <Cards allPokemons={allPokemons} />
+      <Cards pokemons={pokemons} />
     </>
   )
 }
