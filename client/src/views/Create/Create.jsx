@@ -77,7 +77,6 @@ const Create = () => {
 
   return (
     <div>
-      {console.log(errors)}
       <h1>CREATE A POKEMON</h1>
       <form className={createStyles.formCreate} id="createForm">
           <label htmlFor="name">Name(*)</label>
