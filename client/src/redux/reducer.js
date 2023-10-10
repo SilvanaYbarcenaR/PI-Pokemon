@@ -1,3 +1,4 @@
+import { CREATE_POKEMON } from "./action-types";
 import { GET_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, 
 GET_TYPES, PAGINATE, FILTER_BY_TYPES, ORDER_ALPHABETICALLY, 
 FILTER_BY_ORIGIN, FILTER_BY_ATTACK } from "./action-types";
@@ -105,21 +106,14 @@ const reducer = (state = initialState, {type, payload}) => {
     
     case FILTER_BY_ATTACK: 
       let filteredByAttack = [];
-      if(payload === "asc") {
+      if(payload === "asc" || payload === "desc") {
         filteredByAttack = [...state.allPokemonsBackup].sort((a, b) => {
-          if (a.attack < b.attack) return -1;
-          if (a.attack > b.attack) return 1;
-          return 0;
+          if(payload === "asc") return a.attack - b.attack;
+          if(payload === "desc") return b.attack - a.attack;
         });
-      } else if (payload === "desc") {
-        filteredByAttack = [...state.allPokemonsBackup].sort((a, b) => {
-          if (a.attack < b.attack) return 1;
-          if (a.attack > b.attack) return -1;
-          return 0;
-        })
-      } else {
-        filteredByAttack = [...state.allPokemonsBackup]
       }
+      else if(payload === "all") filteredByAttack = [...state.allPokemonsBackup];
+  
       return {
         ...state,
         allPokemons: filteredByAttack,

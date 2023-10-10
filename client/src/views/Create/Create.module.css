@@ -1,0 +1,12 @@
+.formCreate {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 80%;
+  padding: 2em;
+  width: 30rem;
+}
+
+.formCreate label {
+  margin-top: 1.5em;
+}

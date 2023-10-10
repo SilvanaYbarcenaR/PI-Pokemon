@@ -12,7 +12,7 @@ const getPokemons = () => {
         payload: data,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response.data.error);
     }
   };
 };
@@ -27,7 +27,7 @@ const getTypes = () => {
         payload: data,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response.data.error);
     }
   }
 };
@@ -42,7 +42,7 @@ const getPokemonById = (id) => {
         payload: data,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response.data.error);
     }
   }
 }
@@ -79,7 +79,7 @@ const paginatePokemons = (order) => {
         payload: order,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response.data.error);
     }
   }
 }
@@ -92,7 +92,7 @@ const filterByTypes = (type) => {
         payload: type,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response.data.error);
     }
   }
 }
@@ -105,7 +105,7 @@ const filterByOrder = (order) => {
         payload: order,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response.data.error);
     }
   }
 }
@@ -118,7 +118,7 @@ const filterByOrigin = (created) => {
         payload: created,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response.data.error);
     }
   }
 }
@@ -131,7 +131,19 @@ const filterByAttack = (attack) => {
         payload: attack,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response.data.error);
+    }
+  }
+}
+
+const postPokemon = (pokemon) => {
+  return async (dispatch) => {
+    const endpoint = "http://localhost:3001/pokemons/";
+    try {
+      await axios.post(endpoint, pokemon);
+      alert("Pokemon was created successfully.")
+    } catch (error) {
+      console.log(error.response.data.error)
     }
   }
 }
@@ -145,5 +157,6 @@ export {
   filterByTypes,
   filterByOrder,
   filterByOrigin,
-  filterByAttack
+  filterByAttack,
+  postPokemon
 }
