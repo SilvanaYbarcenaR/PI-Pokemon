@@ -67,6 +67,8 @@ const Create = () => {
   const createPokemon = (event) => {
     event.preventDefault();
     dispatch(postPokemon(newPokemon));
+    setNewPokemon({});
+    document.getElementById("createForm").reset();
   }
 
   useEffect(() => {
@@ -77,7 +79,7 @@ const Create = () => {
     <div>
       {console.log(errors)}
       <h1>CREATE A POKEMON</h1>
-      <form className={createStyles.formCreate}>
+      <form className={createStyles.formCreate} id="createForm">
           <label htmlFor="name">Name(*)</label>
           <input name="name" id="name" type="text" onChange={handleChange} placeholder="pikachu"/>
           <span className={createStyles.error}>{errors.name}</span>
