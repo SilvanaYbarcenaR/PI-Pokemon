@@ -72,7 +72,7 @@ const Create = () => {
   }
 
   useEffect(() => {
-      dispatch(getTypes());
+    dispatch(getTypes());
   }, [])
 
   return (

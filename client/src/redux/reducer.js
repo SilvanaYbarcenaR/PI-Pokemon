@@ -1,7 +1,6 @@
-import { CLEAR_PAGINATION } from "./action-types";
 import { GET_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, 
 GET_TYPES, PAGINATE, FILTER_BY_TYPES, ORDER_ALPHABETICALLY, 
-FILTER_BY_ORIGIN, FILTER_BY_ATTACK, CLEAR_DETAIL } from "./action-types";
+FILTER_BY_ORIGIN, FILTER_BY_ATTACK, CLEAR_DETAIL, CLEAR_PAGINATION } from "./action-types";
 
 let initialState = {
   pokemons: [],
@@ -13,17 +12,20 @@ let initialState = {
   itemsPerPage: 12,
   isFirstPage: true,
   isLastPage: false,
+  numberPages: 0
 }
 
 const reducer = (state = initialState, {type, payload}) => {
   const ITEMS_PER_PAGE = state.itemsPerPage;
   switch(type) {
     case GET_POKEMONS:
+      const numberOfPages = Math.ceil(payload.length/ITEMS_PER_PAGE);
       return {
         ...state,
         pokemons: [...payload].splice(0, ITEMS_PER_PAGE),
         allPokemons: payload,
-        pokemonsFiltered: payload
+        pokemonsFiltered: payload,
+        numberPages: numberOfPages
       }
 
     case GET_POKEMON_BY_ID:
@@ -45,16 +47,24 @@ const reducer = (state = initialState, {type, payload}) => {
       }
 
     case PAGINATE:
-      const nextPage = state.currentPage + 1;
-      const prevPage = state.currentPage - 1;
-      const firstIndex = payload === "next" ? nextPage * ITEMS_PER_PAGE : prevPage * ITEMS_PER_PAGE;
+      if( payload === "next" || payload === "prev") {
+        const nextPage = state.currentPage + 1;
+        const prevPage = state.currentPage - 1;
+        const firstIndex = payload === "next" ? nextPage * ITEMS_PER_PAGE : prevPage * ITEMS_PER_PAGE;
 
+        return {
+          ...state,
+          pokemons: [...state.pokemonsFiltered].splice(firstIndex, ITEMS_PER_PAGE),
+          currentPage: payload === "next" ? nextPage : prevPage,
+          isFirstPage: payload === "prev" && prevPage < 1 ? true : false,
+          isLastPage: payload === "next" && (firstIndex >= state.pokemonsFiltered.length - ITEMS_PER_PAGE) ? true : false
+        }
+      }
+      const firstIndex = payload * ITEMS_PER_PAGE;
       return {
         ...state,
         pokemons: [...state.pokemonsFiltered].splice(firstIndex, ITEMS_PER_PAGE),
-        currentPage: payload === "next" ? nextPage : prevPage,
-        isFirstPage: payload === "prev" && prevPage < 1 ? true : false,
-        isLastPage: payload === "next" && (firstIndex >= state.pokemonsFiltered.length - ITEMS_PER_PAGE) ? true : false
+        currentPage: payload
       }
     
     case FILTER_BY_TYPES:
@@ -62,14 +72,17 @@ const reducer = (state = initialState, {type, payload}) => {
         return {
           ...state,
           pokemonsFiltered: state.allPokemons,
+          numberPages: state.allPokemons.length ? Math.ceil(state.allPokemons.length/ITEMS_PER_PAGE) : 0,
           pokemons: [...state.allPokemons].splice(0, ITEMS_PER_PAGE)
         }
       }
       
       const filteredByType = [...state.allPokemons].filter((pokemon) => pokemon.types.includes(payload));
+    
       return {
         ...state,
         pokemonsFiltered: [...filteredByType],
+        numberPages: filteredByType.length ? Math.ceil(filteredByType.length/ITEMS_PER_PAGE) : 0,
         pokemons: [...filteredByType].splice(0, ITEMS_PER_PAGE)
       }
     
@@ -98,6 +111,7 @@ const reducer = (state = initialState, {type, payload}) => {
       return {
         ...state,
         pokemonsFiltered: filteredByOrder,
+        numberPages: filteredByOrder.length ? Math.ceil(filteredByOrder.length/ITEMS_PER_PAGE) : 0,
         pokemons: [...filteredByOrder].splice(0, ITEMS_PER_PAGE)
       }
 
@@ -118,6 +132,7 @@ const reducer = (state = initialState, {type, payload}) => {
       return {
         ...state,
         pokemonsFiltered: filteredByOrigin,
+        numberPages: filteredByOrigin.length ? Math.ceil(filteredByOrigin.length/ITEMS_PER_PAGE) : 0,
         pokemons: [...filteredByOrigin].splice(0, ITEMS_PER_PAGE)
       }
     
@@ -139,6 +154,7 @@ const reducer = (state = initialState, {type, payload}) => {
       return {
         ...state,
         pokemonsFiltered: filteredByAttack,
+        numberPages: filteredByAttack.length ? Math.ceil(filteredByAttack.length/ITEMS_PER_PAGE) : 0,
         pokemons: [...filteredByAttack].splice(0, ITEMS_PER_PAGE)
       }
 

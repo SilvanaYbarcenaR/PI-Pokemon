@@ -13,6 +13,8 @@ const Home = () => {
   const itemsPerPage = useSelector((state) => state.itemsPerPage);
   const isFirstPage = useSelector((state) => state.isFirstPage);
   const isLastPage = useSelector((state) => state.isLastPage);
+  const numberPages = useSelector((state) => state.numberPages);
+
   const paginate = (event) => {
     dispatch(paginatePokemons(event.target.name));
   }
@@ -29,6 +31,9 @@ const Home = () => {
           {(pokemonsFiltered.length > 0 && pokemonsFiltered.length > itemsPerPage) &&
             <>
               <button name="prev" onClick={paginate} disabled={isFirstPage}>Prev</button>
+              {numberPages ? 
+                [...Array(numberPages)].map((e, i) => <button key={i} name={i} onClick={paginate}>{i+1}</button>) 
+                : ""}
               <button name="next" onClick={paginate} disabled={isLastPage}>Next</button>
             </>
           }
