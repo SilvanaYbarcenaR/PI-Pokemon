@@ -1,6 +1,6 @@
 const validation = ({ name, image, life, attack, defense, speed, height, weight, types }) => {
   let errors = {};
-  let URLRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+  const URLRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
 
   const requiredMessage = (nameProp) => {
     errors[nameProp] = `${nameProp.toUpperCase()} is a required field.`;

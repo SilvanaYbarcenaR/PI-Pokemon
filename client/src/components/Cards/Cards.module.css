@@ -1,5 +1,5 @@
 /* Cards styles */
 .cardsContainer {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
 }

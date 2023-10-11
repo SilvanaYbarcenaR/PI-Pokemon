@@ -18,7 +18,7 @@ const Landing = () => {
         <div className={landingStyles.btnPokemon}>
           <div className={landingStyles.btnGroup}>
               <div className={landingStyles.ball}>
-              <button>
+              <button className={landingStyles.btnPokeball}>
                 <div className={landingStyles.pokemonBall}></div><div className={landingStyles.ballText}>START<span data-letters="GO!"></span><span data-letters="GO!"></span></div>
               </button>
               </div>

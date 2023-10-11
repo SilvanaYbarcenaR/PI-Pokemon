@@ -1,10 +1,114 @@
 /* Cards styles */
 .card {
-  background: red;
-  flex: 1 1 15%;
+  background: #ffffff;
+  border-radius: 6px;
+  margin: 1.2em;
+  overflow: hidden;
+  padding: 1.8em 1.2em 1.5em;
+  position: relative;
   text-align: center;
-  margin: 1em;
+}
+.card::before {
+  background: #ff1100;
+  content: "";
+  height: 100%;
+  left: -80%;
+  position: absolute;
+  top: -41%;
+  transform: rotate(-18deg);
+  width: 200%;
+  z-index: 0;
+}
+.card::after {
+  background: rgb(0, 0, 0, 0.3);
+  content: "";
+  height: 6%;
+  left: -80%;
+  position: absolute;
+  top: 56%;
+  transform: rotate(-18deg);
+  width: 200%;
+  z-index: 0;
+}
+.card a {
+  color: #ffffff;
+  text-decoration: none;
 }
 .card img {
-  max-width: 300px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  background: linear-gradient(-15deg, #62404000, #ff000000, #ffffff5e);
+  margin-top: 0.5em;
+  max-width: 200px;
+  min-height: 200px;
+  padding: 1.8em;
+  position: relative;
+  width: 200px;
+  z-index: 1;
+}
+.cardDetail {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -1rem;
+}
+.cardDetail h2 {
+  color: #000000;
+  font-size: 1.25em;
+  margin: 0;
+  margin-right: 0.2em;
+  margin-top: -0.5em;
+  position: relative;
+  z-index: 1;
+}
+.cardDetail span {
+  border-radius: 3px;
+  font-size: 0.8rem;
+  margin: 0 0.35em;
+  padding: 0.2em 0.4em;
+  z-index: 1;
+}
+.card.grass::before {
+  background: #22b427;
+}
+.card.water::before {
+  background: #3285ff;
+}
+.card.bug::before {
+  background: #9458ff;
+}
+.card.fire::before {
+  background: #ff2900;
+}
+.card.fighting::before {
+  background: #ff1100;
+}
+.card.flying::before {
+  background: #0128ff;
+}
+.card.poison::before {
+  background: #4000b2;
+}
+.card.electric::before {
+  background: #ffc107;
+}
+.card.fairy::before {
+  background: #ff5acf;
+}
+.card.normal::before {
+  background: #ff5722;
+}
+.card.ground::before {
+  background: #9b5b44;
+}
+.types{
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+}
+.types span {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 0.65rem;
+  font-weight: bold;
 }

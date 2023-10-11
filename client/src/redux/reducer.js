@@ -1,7 +1,7 @@
 import { CLEAR_PAGINATION } from "./action-types";
 import { GET_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, 
 GET_TYPES, PAGINATE, FILTER_BY_TYPES, ORDER_ALPHABETICALLY, 
-FILTER_BY_ORIGIN, FILTER_BY_ATTACK } from "./action-types";
+FILTER_BY_ORIGIN, FILTER_BY_ATTACK, CLEAR_DETAIL } from "./action-types";
 
 let initialState = {
   pokemons: [],
@@ -10,7 +10,7 @@ let initialState = {
   allPokemons: [],
   pokemonsFiltered: [],
   currentPage: 0,
-  itemsPerPage: 2,
+  itemsPerPage: 12,
   isFirstPage: true,
   isLastPage: false,
 }
@@ -150,6 +150,12 @@ const reducer = (state = initialState, {type, payload}) => {
           isLastPage: false
         }
         
+      case CLEAR_DETAIL:
+        return {
+          ...state,
+          pokemonById: {},
+        }
+
     default:
       return {...state}
   }

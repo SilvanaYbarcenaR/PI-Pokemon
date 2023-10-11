@@ -206,7 +206,7 @@
   top: 0;
   width: 3px;
 }
-button {
+button.btnPokeball {
   color: #fff;
   cursor: pointer;
   font-size: 1.5em;
@@ -218,7 +218,7 @@ button {
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   text-transform: uppercase;
 }
-button a {
+button.btnPokeball a {
   text-decoration: none;
 }
 

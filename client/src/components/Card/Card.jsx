@@ -4,11 +4,13 @@ import { NavLink } from 'react-router-dom';
 
 const Card = ({id, name, image, types}) => {
   return (
-    <div className={CardStyles.card}>
+    <div className={`${CardStyles.card} ${CardStyles[types[0]]}`}>
       <NavLink to={`/detail/${id}`}>
         <div><img src={image} alt={name} loading="lazy"/></div>
-        <h2>{name}</h2>
-        <p>Types: {types.map((type, index) => (index === 0 ? "" : ", ") + type)}</p>
+        <div className={CardStyles.cardDetail}>
+          <h2>{name}</h2>
+          <div className={CardStyles.types}>{types.map((type, index) => <span key={index} className={CardStyles[type]}>{type}</span>)}</div>
+        </div>
       </NavLink>
     </div>
   )

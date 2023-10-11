@@ -1,0 +1,15 @@
+/* Navigation styles */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5em;
+  width: 100%;
+}
+.nav .navLinks a {
+  color: #ffffff;
+  font-family: 'Pokemon Solid', sans-serif;
+  font-size: 1.2rem;
+  margin-right: 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+}

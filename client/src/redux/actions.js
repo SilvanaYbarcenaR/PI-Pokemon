@@ -1,6 +1,7 @@
 import axios from "axios";
 import { GET_POKEMONS, GET_TYPES, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, 
-PAGINATE, FILTER_BY_TYPES, ORDER_ALPHABETICALLY, FILTER_BY_ORIGIN, FILTER_BY_ATTACK, CLEAR_PAGINATION } from "./action-types";
+PAGINATE, FILTER_BY_TYPES, ORDER_ALPHABETICALLY, FILTER_BY_ORIGIN, 
+FILTER_BY_ATTACK, CLEAR_PAGINATION, CLEAR_DETAIL } from "./action-types";
 
 const getPokemons = () => {
   const endpoint = 'http://localhost:3001/pokemons/';
@@ -156,6 +157,14 @@ const clearPagination = () => {
   }
 }
 
+const clearDetail = () => {
+  return async (dispatch) => {
+    dispatch({
+      type: CLEAR_DETAIL,
+    });
+  }
+}
+
 export {
   getPokemons,
   getTypes,
@@ -167,5 +176,6 @@ export {
   filterByOrigin,
   filterByAttack,
   postPokemon,
-  clearPagination
+  clearPagination,
+  clearDetail
 }

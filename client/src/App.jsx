@@ -6,11 +6,15 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './views/Home/Home'
 import Detail from './views/Detail/Detail';
 import Create from './views/Create/Create';
+import video from './assets/videos/pokeballBG.mp4';
 
 const App = () => {
   const currentPath = useLocation();
   return (
-    <div>
+    <div className={`App ${currentPath.pathname !== "/" && "internal"}`}>
+      <video className="videoBg" autoPlay loop muted>
+        <source src={video} type="video/mp4"/>
+      </video>
       {(currentPath.pathname !== "/" && currentPath.pathname !== "/error") && <Navbar/>}
       <Routes>
         <Route path="/" element={<Landing/>}/>
