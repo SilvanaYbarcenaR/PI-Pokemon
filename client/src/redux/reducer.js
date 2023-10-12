@@ -64,7 +64,9 @@ const reducer = (state = initialState, {type, payload}) => {
       return {
         ...state,
         pokemons: [...state.pokemonsFiltered].splice(firstIndex, ITEMS_PER_PAGE),
-        currentPage: payload
+        currentPage: payload,
+        isFirstPage: payload == 0 ? true : false,
+        isLastPage: payload == state.numberPages - 1 ? true : false
       }
     
     case FILTER_BY_TYPES:
