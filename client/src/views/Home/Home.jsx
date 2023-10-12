@@ -5,6 +5,7 @@ import { getPokemons, paginatePokemons } from "../../redux/actions";
 import Cards from '../../components/Cards/Cards';
 import Filters from '../../components/Filters/Filters';
 import homeStyles from './Home.module.css';
+import bannerVideo from '../../assets/videos/banner-pokemon.mp4';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -24,23 +25,33 @@ const Home = () => {
   }, [])
 
   return (
-    <div className={homeStyles.homeContainer}>
-      <Filters/>
-      <div className={homeStyles.rightContainer}>
-        <div>
-          {(pokemonsFiltered.length > 0 && pokemonsFiltered.length > itemsPerPage) &&
-            <>
-              <button name="prev" onClick={paginate} disabled={isFirstPage}>Prev</button>
-              {numberPages ? 
-                [...Array(numberPages)].map((e, i) => <button key={i} name={i} onClick={paginate}>{i+1}</button>) 
-                : ""}
-              <button name="next" onClick={paginate} disabled={isLastPage}>Next</button>
-            </>
-          }
-        </div>
-        <Cards pokemons={pokemons} />
+    <>
+      <div className={homeStyles.videoBanner}>
+        <video className={homeStyles.videoBg} autoPlay loop muted>
+          <source src={bannerVideo} type="video/mp4"/>
+        </video>
       </div>
-    </div>
+      <div className={homeStyles.homeContainer}>
+        <Filters/>
+        <div className={homeStyles.rightContainer}>
+          <div className={homeStyles.paginationContainer}>
+            <div className={homeStyles.pagination}>
+              {(pokemonsFiltered.length > 0 && pokemonsFiltered.length > itemsPerPage) &&
+                <>
+                  <button name="prev" onClick={paginate} disabled={isFirstPage}>Prev</button>
+                  {numberPages ? 
+                    [...Array(numberPages)].map((e, i) => <button key={i} name={i} onClick={paginate}>{i+1}</button>) 
+                    : ""}
+                  <button name="next" onClick={paginate} disabled={isLastPage}>Next</button>
+                </>
+              }
+            </div>
+            <p>{`Results: ${pokemonsFiltered.length} pokemons`}</p>
+          </div>
+          <Cards pokemons={pokemons} />
+        </div>
+      </div>
+    </>
   )
 }
 

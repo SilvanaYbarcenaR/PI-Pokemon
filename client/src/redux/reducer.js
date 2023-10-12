@@ -48,10 +48,10 @@ const reducer = (state = initialState, {type, payload}) => {
 
     case PAGINATE:
       if( payload === "next" || payload === "prev") {
-        const nextPage = state.currentPage + 1;
-        const prevPage = state.currentPage - 1;
+        const nextPage = Number(state.currentPage) + 1;
+        const prevPage = Number(state.currentPage) - 1;
         const firstIndex = payload === "next" ? nextPage * ITEMS_PER_PAGE : prevPage * ITEMS_PER_PAGE;
-
+        
         return {
           ...state,
           pokemons: [...state.pokemonsFiltered].splice(firstIndex, ITEMS_PER_PAGE),

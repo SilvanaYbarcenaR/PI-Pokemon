@@ -8,7 +8,7 @@ const Cards = ({pokemons}) => {
       {!pokemons.length ? 
         <p>No pokemons were found.</p> 
         :
-        pokemons?.map(({ id, name, image, types }) => {
+        pokemons?.map(({ id, name, image, types, attack, life, defense }) => {
           return (
             <Card
               key={id} 
@@ -16,6 +16,9 @@ const Cards = ({pokemons}) => {
               image={image}
               name={name}
               types={types}
+              attack={attack}
+              life={life}
+              defense={defense}
             />
           )
         })

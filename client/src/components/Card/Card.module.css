@@ -4,7 +4,7 @@
   border-radius: 6px;
   margin: 1.2em;
   overflow: hidden;
-  padding: 1.8em 1.2em 1.5em;
+  padding: 1.8em 1.2em 1.4em;
   position: relative;
   text-align: center;
 }
@@ -55,9 +55,9 @@
 }
 .cardDetail h2 {
   color: #000000;
-  font-size: 1.25em;
+  font-size: 1.15em;
   margin: 0;
-  margin-right: 0.2em;
+  margin-right: 1em;
   margin-top: -0.5em;
   position: relative;
   z-index: 1;
@@ -70,37 +70,37 @@
   z-index: 1;
 }
 .card.grass::before {
-  background: #22b427;
+  background: linear-gradient(45deg, #22b427 35%, rgba(0, 0, 0, 0.5));
 }
 .card.water::before {
-  background: #3285ff;
+  background: linear-gradient(45deg, #3285ff 35%, rgba(0, 0, 0, 0.5));
 }
 .card.bug::before {
-  background: #9458ff;
+  background: linear-gradient(45deg, #9458ff 35%, rgba(0, 0, 0, 0.5));
 }
 .card.fire::before {
-  background: #ff2900;
+  background: linear-gradient(45deg, #ff2900 35%, rgba(0, 0, 0, 0.5));
 }
 .card.fighting::before {
-  background: #ff1100;
+  background: linear-gradient(45deg, #ff1100 35%, rgba(0, 0, 0, 0.5));
 }
 .card.flying::before {
-  background: #0128ff;
+  background: linear-gradient(45deg, #543cff 35%, rgba(0, 0, 0, 0.5));
 }
 .card.poison::before {
-  background: #4000b2;
+  background: linear-gradient(45deg, #4000b2 35%, rgba(0, 0, 0, 0.5));
 }
 .card.electric::before {
-  background: #ffc107;
+  background: linear-gradient(45deg, #ffc107 35%, rgba(0, 0, 0, 0.5));
 }
 .card.fairy::before {
-  background: #ff5acf;
+  background: linear-gradient(45deg, #ff5acf 35%, rgba(0, 0, 0, 0.5));
 }
 .card.normal::before {
-  background: #ff5722;
+  background: linear-gradient(45deg, #ff5722 35%, rgba(0, 0, 0, 0.5));
 }
 .card.ground::before {
-  background: #9b5b44;
+  background: linear-gradient(45deg, #9b5b44 35%, rgba(0, 0, 0, 0.5));
 }
 .types{
   position: absolute;
@@ -111,4 +111,49 @@
   border: 1px solid rgba(255, 255, 255, 0.5);
   font-size: 0.65rem;
   font-weight: bold;
+}
+.infoPokemon {
+  bottom: 1.4em;
+  display: flex;
+  flex-direction: column;
+  right: 0.8em;
+  position: absolute;
+  z-index: 3;
+}
+.attackContainer, .lifeContainer, .defenseContainer {
+  position: relative;
+}
+.attackContainer svg {
+  fill: #ffb1b1;
+  width: 1.5em;
+}
+.lifeContainer svg {
+  fill: #ffe6a5;
+  width: 1.5em;
+}
+.defenseContainer svg {
+  width: 1.2em;
+}
+.defenseContainer svg path {
+  fill: #98c1ff;
+}
+.attackContainer span, .lifeContainer span, .defenseContainer span {
+  font-size: 0.5rem;
+  font-weight: bold;
+  position: absolute;
+  right: 0.15em;
+  top: 0.5em;
+}
+.lifeContainer span {
+  color: #e7961d;
+}
+.attackContainer span {
+  color: #b5362c;
+  right: 0.1em;
+  top: 0.7em;
+}
+.defenseContainer span {
+  color: #3e54cb;
+  right: 0.1em;
+  top: 0.3em;
 }

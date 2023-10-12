@@ -2,7 +2,52 @@
 .homeContainer {
   display: grid;
   grid-template-columns: 15% 85%;
+  padding: 4.5em 0 2.5em;
 }
 .rightContainer {
   padding: 0 6%;
+}
+.paginationContainer {
+  align-items: center;
+  color: #ffffff;
+  justify-content: space-between;
+  display: flex;
+  height: 2.5rem;
+  margin: 0 1.2em 1.5em;
+}
+.paginationContainer .pagination button {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 2px;
+  color: #ffffff;
+  cursor: pointer;
+  margin-right: 0.8em;
+  padding: 0.4rem 0.55rem;
+}
+.paginationContainer .pagination button:disabled{
+  background: #8e8e8e;
+  border: 0;
+  cursor: initial;
+}
+.paginationContainer p {
+  font-family: 'Truculenta', sans-serif;
+  font-size: 1.2rem;
+}
+
+/* Video background */
+.videoBanner {
+  box-shadow: 0 25px 90px #ffffff82;
+  height: 50vh;
+  position: relative;
+  overflow: hidden;
+}
+.videoBg {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
 }

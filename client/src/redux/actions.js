@@ -138,7 +138,7 @@ const filterByAttack = (attack) => {
 }
 
 const postPokemon = (pokemon) => {
-  return async (dispatch) => {
+  return async () => {
     const endpoint = "http://localhost:3001/pokemons/";
     try {
       await axios.post(endpoint, pokemon);

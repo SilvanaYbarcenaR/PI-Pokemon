@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { clearPagination, filterByAttack, filterByOrder, filterByOrigin, filterByTypes, getTypes } from "../../redux/actions";
 import { useEffect } from "react";
-import filtersStyles from "./Filters.module.css"
+import ashImg from "../../assets/images/ash.png";
+import filtersStyles from "./Filters.module.css";
 
 const Filters = () => {
   const dispatch = useDispatch();
@@ -47,8 +48,8 @@ const Filters = () => {
         <label htmlFor="order">Alphabetical order: </label>
         <select name="order" id="order" onChange={onChange}>
           <option value="unorder">---</option>
-          <option value="asc">ASC</option>
-          <option value="desc">DESC</option>
+          <option value="asc">A-Z</option>
+          <option value="desc">Z-A</option>
         </select>
 
         <label htmlFor="origin">Origin: </label>
@@ -64,6 +65,8 @@ const Filters = () => {
           <option value="asc">ASC</option>
           <option value="desc">DES</option>
         </select>
+
+        <img src={ashImg} alt="Ash"/>
       </div>
     </div>
   )
