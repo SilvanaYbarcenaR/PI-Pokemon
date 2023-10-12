@@ -2,7 +2,7 @@ import React from 'react'
 import Card from '../Card/Card';
 import CardsStyles from '../Cards/Cards.module.css'
 
-const Cards = ({pokemons}) => {
+const Cards = ({ pokemons }) => {
   return (
     <div className={CardsStyles.cardsContainer}>
       {!pokemons.length ? 

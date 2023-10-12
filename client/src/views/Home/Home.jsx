@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react";
-import { getPokemons, paginatePokemons } from "../../redux/actions";
+import { clearPagination, getPokemons, paginatePokemons } from "../../redux/actions";
 import Cards from '../../components/Cards/Cards';
 import Filters from '../../components/Filters/Filters';
 import homeStyles from './Home.module.css';
@@ -15,6 +15,7 @@ const Home = () => {
   const isFirstPage = useSelector((state) => state.isFirstPage);
   const isLastPage = useSelector((state) => state.isLastPage);
   const numberPages = useSelector((state) => state.numberPages);
+  const currentPage = useSelector((state) => state.currentPage);
 
   const paginate = (event) => {
     dispatch(paginatePokemons(event.target.name));
@@ -22,6 +23,9 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getPokemons());
+    return () => {
+      dispatch(clearPagination());
+    }
   }, [])
 
   return (
@@ -38,11 +42,21 @@ const Home = () => {
             <div className={homeStyles.pagination}>
               {(pokemonsFiltered.length > 0 && pokemonsFiltered.length > itemsPerPage) &&
                 <>
-                  <button name="prev" onClick={paginate} disabled={isFirstPage}>Prev</button>
-                  {numberPages ? 
-                    [...Array(numberPages)].map((e, i) => <button key={i} name={i} onClick={paginate}>{i+1}</button>) 
-                    : ""}
-                  <button name="next" onClick={paginate} disabled={isLastPage}>Next</button>
+                 {console.log(numberPages)}
+                  {numberPages > 0 &&
+                    <>
+                      <button name="prev" onClick={paginate} disabled={isFirstPage}>Prev</button>
+                      {[...Array(numberPages).keys()].map((i) => {
+                        return (
+                          <button key={i} name={i} onClick={paginate} className={currentPage == i ? 
+                            homeStyles["active"] : ""}>
+                            {i+1}
+                          </button>
+                        )
+                      })}
+                      <button name="next" onClick={paginate} disabled={isLastPage}>Next</button>
+                    </>
+                  }
                 </>
               }
             </div>

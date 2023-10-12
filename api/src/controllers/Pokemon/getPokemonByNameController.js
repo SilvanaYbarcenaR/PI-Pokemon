@@ -24,7 +24,7 @@ const getPokemonByNameController = async (name) => {
       const pokemonByName = await clearPokemonApi(data);
       return pokemonByName;
     } catch (error) {
-      throw new Error("Pokemon was not found.")
+      throw new Error(`Pokemon with name "${name}" was not found.`)
     }
   }
 }

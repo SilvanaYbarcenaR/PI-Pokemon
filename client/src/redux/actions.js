@@ -38,6 +38,7 @@ const getPokemonById = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(endpoint);
+      clearPagination();
       dispatch({
         type: GET_POKEMON_BY_ID,
         payload: data,
@@ -59,7 +60,7 @@ const getPokemonByName = (name) => {
           payload: data,
         });
       } catch (error) {
-        console.log(error.response.data.error);
+        throw new Error(error.response.data.error);
       }
     }
   } else {

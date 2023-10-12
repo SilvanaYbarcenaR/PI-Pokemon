@@ -24,6 +24,11 @@
   margin-right: 0.8em;
   padding: 0.4rem 0.55rem;
 }
+.paginationContainer .pagination button.active {
+  background-color: #784fbe;
+  border: 1px solid #784fbe;
+  font-weight: bold;
+}
 .paginationContainer .pagination button:disabled{
   background: #8e8e8e;
   border: 0;

@@ -1,0 +1,62 @@
+.modalContainer {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 3;
+}
+.modal {
+  animation: appear .3s linear forwards; 
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 0.5em;
+  box-shadow: 0 0 25px #00000029;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1rem;
+  justify-content: center;
+  max-width: 85%;
+  min-height: 15em;
+  min-width: 18em;
+  padding: 3em;
+}
+.modal .title {
+  margin-top: 0;
+}
+.modal h1.Error {
+  color: #ff685d;
+} 
+.modal button.btnClose {
+  border: 0;
+  background: #c8b7e6;
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  color: #693eb8;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.3em 1em;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.modal button.btnClose svg {
+  fill: #693eb8;
+  width: 1.1em;
+}
+
+@keyframes appear {
+  0%	{ 
+      opacity: 0;
+      transform: translateY(40px); 
+  }
+  100% { 
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

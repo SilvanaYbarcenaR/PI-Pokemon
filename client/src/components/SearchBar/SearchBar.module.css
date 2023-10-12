@@ -1,0 +1,35 @@
+.searchBar {
+  display: flex;
+  flex: 1 1 50%;
+  justify-content: flex-end;
+}
+.searchBar input[type="search"]  {
+  background-color: #ffffff36;
+  background-image: url(/src/assets/images/lupa.svg);
+  background-repeat: no-repeat;
+  border: none;
+  background-size: 1.3em;
+  background-position: 0.9em 55%;
+  border: none;
+  border-top-left-radius: 1.5em;
+  border-bottom-left-radius: 1.5em;
+  color: #ffffff;
+  padding: 0.7em 1.5em 0.7em 3em;
+  width: 25%;
+}
+.searchBar input::placeholder  {
+  color: rgba(255, 255, 255, 0.5);
+}
+.searchBar input:focus-visible {
+  outline: none;
+}
+.searchBar button.btnSearch {
+  border: 0;
+  border-top-right-radius: 1.5em;
+  border-bottom-right-radius: 1.5em;
+  background: #e6d8ee;
+  padding: 0.7em 1.5em;
+  color: #693eb8;
+  cursor: pointer;
+  font-weight: bold;
+}

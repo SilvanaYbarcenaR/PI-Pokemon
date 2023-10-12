@@ -1,15 +1,28 @@
 /* Navigation styles */
 .nav {
+  background-color: #6639b5;
   display: flex;
   justify-content: space-between;
-  padding: 1.5em;
+  padding: 1.2em 1.5em;
   width: 100%;
 }
 .nav .navLinks a {
   color: #ffffff;
-  font-family: 'Pokemon Solid', sans-serif;
+  font-family: 'Truculenta', sans-serif;
   font-size: 1.2rem;
-  margin-right: 1.5em;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  margin-right: 2em;
+  padding: 0 0.6em;
   text-decoration: none;
   text-transform: uppercase;
+  transition: 0.4s ease-out all;
+}
+.nav .navLinks a.active {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #6639b5;
+  font-weight: bold;
+}
+.nav .searchBar {
+  flex: 1 1 50%;
 }

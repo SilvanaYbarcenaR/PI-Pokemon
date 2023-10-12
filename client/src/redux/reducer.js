@@ -35,9 +35,11 @@ const reducer = (state = initialState, {type, payload}) => {
       }
 
     case GET_POKEMON_BY_NAME:
+      console.log("paylod", payload)
       return {
         ...state,
-        pokemons: payload ? [{...payload}] : [...state.allPokemons]
+        pokemons: payload ? [{...payload}] : [...state.allPokemons].splice(0, ITEMS_PER_PAGE),
+        numberPages: payload ? 0 : Math.ceil(state.allPokemons.length/ITEMS_PER_PAGE)
       }
 
     case GET_TYPES:
