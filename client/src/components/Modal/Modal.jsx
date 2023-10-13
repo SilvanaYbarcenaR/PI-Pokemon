@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import modalStyles from './Modal.module.css';
 
 const Modal = ({ title, description, closeModal }) => {
+  useEffect(() => {
+    return(() => closeModal(false))
+  },[])
   return (
     <div className={modalStyles.modalContainer}>
-      {console.log(closeModal)}
       <div className={modalStyles.modal}>
         <button className={modalStyles.btnClose} onClick={() => closeModal(true)}>
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">

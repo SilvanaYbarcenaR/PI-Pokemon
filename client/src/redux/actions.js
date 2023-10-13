@@ -143,9 +143,8 @@ const postPokemon = (pokemon) => {
     const endpoint = "http://localhost:3001/pokemons/";
     try {
       await axios.post(endpoint, pokemon);
-      alert("Pokemon was created successfully.")
     } catch (error) {
-      console.log(error.response.data.message);
+      throw new Error(error.response.data.error);
     }
   }
 }

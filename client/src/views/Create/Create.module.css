@@ -1,30 +1,94 @@
+/* Creata form */
 .formCreate {
   color: #ffffff;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   margin: 0 auto;
-  max-width: 80%;
   padding: 2em;
-  width: 30rem;
 }
 
-.formCreate label {
-  margin-top: 1.5em;
+.createContainer h1 {
+  color: #ffffff;
+  font-family: 'Truculenta', sans-serif;
+  font-size: 3.5rem;
+  margin-bottom: 0.4em;
+  margin-top: 3%;
+  text-align: center;
+  padding: 0 2em;
 }
 
 .formCreate input, .formCreate select {
-  height: 2.5em;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 0;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  height: 2.8em;
+  margin-bottom: 1.5em;
+  padding: 1em;
+}
+
+.formCreate label {
+  font-weight: 700d;
 }
 
 .formCreate input[type="submit"] {
-  background-color: #000000;
+  background-color: #6639b6;
+  bottom: 0;
+  border: 0;
   color: #ffffff;
-  margin-top: 3em;
-  padding: 1em 1em 2em;
+  cursor: pointer;
+  font-family: 'Truculenta', sans-serif;
+  font-weight: bold;
+  font-size: 1.9rem;
+  height: auto;
+  margin-bottom: 0;
+  padding: 1rem 3rem 1rem;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  transition: 0.4s ease all;
+}
+
+.formCreate input[type="submit"]:hover {
+  background-color: #7642d0;
+}
+
+.formCreate select[name="type"] {
+  height: 8em;
+}
+
+.formCreate .fromGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 40%;
+  margin: 0 1.2em;
+  padding-bottom: 0.8em;
+  position: relative;
 }
 
 .formCreate .error {
-  color: #F44336;
-  font-size: 0.85rem;
-  margin-top: 0.4em;
+  bottom: 0.6em;
+  color: #ff94e5;
+  font-size: 0.9rem;
+  position: absolute;
+}
+
+.formCreate .btnForm {
+  flex: 1 1 100%;
+  text-align: center;
+}
+
+.createContainer .previewForm {
+  border: 2px dashed rgba(255, 255, 255, 0.5);
+  display: flex;
+  margin: 0 auto;
+  max-width: 90%;
+  padding-top: 1rem;
+  position: relative;
+  width: 84em;
+}
+
+.createContainer .cardForm {
+  flex: 1 1 60%;
+  padding: 0 2em 0 0;
 }

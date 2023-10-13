@@ -2,13 +2,13 @@ import React from 'react'
 import Card from '../Card/Card';
 import CardsStyles from '../Cards/Cards.module.css'
 
-const Cards = ({ pokemons }) => {
+const Cards = ({ pokemons, classCustomCards, classCustomCard }) => {
   return (
-    <div className={CardsStyles.cardsContainer}>
-      {!pokemons.length ? 
-        <p>No pokemons were found.</p> 
+    <div className={`${CardsStyles.cardsContainer} ${CardsStyles[classCustomCards]}`}>
+      {!pokemons?.length ? 
+        <p className={CardsStyles.notFound}>No pokemons were found.</p> 
         :
-        pokemons?.map(({ id, name, image, types, attack, life, defense }) => {
+        pokemons?.map(({ id, name, image, types, attack, life, defense, speed, height, weight }) => {
           return (
             <Card
               key={id} 
@@ -19,6 +19,10 @@ const Cards = ({ pokemons }) => {
               attack={attack}
               life={life}
               defense={defense}
+              speed={speed}
+              height={height}
+              weight={weight}
+              classCustomCard={classCustomCard}
             />
           )
         })

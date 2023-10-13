@@ -32,6 +32,9 @@
 .modal h1.Error {
   color: #ff685d;
 } 
+.modal h1.Success{
+  color: #4caf50;
+} 
 .modal button.btnClose {
   border: 0;
   background: #c8b7e6;

@@ -2,9 +2,9 @@ import React from 'react';
 import cardStyles from '../Card/Card.module.css';
 import { NavLink } from 'react-router-dom';
 
-const Card = ({id, name, image, types, attack, life, defense}) => {
+const Card = ({id, name, image, types, attack, life, defense, classCustomCard, speed, height, weight}) => {
   return (
-    <div className={`${cardStyles.card} ${cardStyles[types[0]]}`}>
+    <div className={`${cardStyles.card} ${types && cardStyles[types[0]]} ${cardStyles[classCustomCard]}`}>
       <NavLink to={`/detail/${id}`}>
         <div><img src={image} alt={name} loading="lazy"/></div>
         <div className={cardStyles.cardDetail}>
@@ -26,6 +26,15 @@ const Card = ({id, name, image, types, attack, life, defense}) => {
               <span>{defense}</span>
             </div>
           </div>
+          {classCustomCard &&
+            <div className={cardStyles.detailPokemon}>
+              <p><b>Life:</b> {life}</p>
+              <p><b>Defense:</b> {defense}</p>
+              <p><b>Speed:</b> {speed}</p>
+              <p><b>Height:</b> {height}</p>
+              <p><b>Weight:</b> {weight}</p>
+            </div>
+          }
         </div>
       </NavLink>
     </div>

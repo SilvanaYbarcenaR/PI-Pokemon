@@ -3,6 +3,20 @@
   animation: appear .3s linear forwards; 
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
+  margin-top: 1em;
+}
+
+.cardsContainer.formCards {
+  grid-template-columns: 100%;
+}
+
+.cardsContainer.formCards a {
+  pointer-events: none;
+}
+
+.notFound {
+  color: #ffffff;
+  font-size: 1.5rem;
 }
 
 @keyframes appear {

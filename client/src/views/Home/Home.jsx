@@ -42,7 +42,6 @@ const Home = () => {
             <div className={homeStyles.pagination}>
               {(pokemonsFiltered.length > 0 && pokemonsFiltered.length > itemsPerPage) &&
                 <>
-                 {console.log(numberPages)}
                   {numberPages > 0 &&
                     <>
                       <button name="prev" onClick={paginate} disabled={isFirstPage}>Prev</button>

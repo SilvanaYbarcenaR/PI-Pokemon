@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearDetail, getPokemonById } from '../../redux/actions';
 import { useParams } from 'react-router-dom';
+import detailStyles from './Detail.module.css'
 
 const Detail = () => {
   const id = useParams().id;
@@ -16,7 +17,7 @@ const Detail = () => {
   }, [])
   
   return (
-    <div>
+    <div className={detailStyles.detailContainer}>
       <span>{pokemonById.id}</span>
       <h1>Name: {pokemonById.name}</h1>
       <img src={pokemonById.image} alt={pokemonById.name}/>
