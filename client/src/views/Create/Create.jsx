@@ -102,8 +102,6 @@ const Create = () => {
 
   return (
     <div className={createStyles.createContainer}>
-      {console.log("error",error)}
-      {console.log("success",success)}
       <h1>CREATE A POKEMON</h1>
       <div className={createStyles.previewForm}>
         <form className={createStyles.formCreate} id="createForm">
