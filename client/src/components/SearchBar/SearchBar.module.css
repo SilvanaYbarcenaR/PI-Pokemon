@@ -32,8 +32,9 @@
   border-top-right-radius: 1.5em;
   border-bottom-right-radius: 1.5em;
   background: #e6d8ee;
-  padding: 0.7em 1.5em;
   color: #693eb8;
   cursor: pointer;
+  font-size: 0.95rem;
   font-weight: bold;
+  padding: 0.7em 1.5em;
 }

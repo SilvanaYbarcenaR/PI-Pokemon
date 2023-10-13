@@ -18,16 +18,24 @@ const Detail = () => {
   
   return (
     <div className={detailStyles.detailContainer}>
-      <span>{pokemonById.id}</span>
-      <h1>Name: {pokemonById.name}</h1>
-      <img src={pokemonById.image} alt={pokemonById.name}/>
-      <p>Life: {pokemonById.life}</p>
-      <p>Attack: {pokemonById.attack}</p>
-      <p>Defense: {pokemonById.defense}</p>
-      <p>Speed: {pokemonById.speed}</p>
-      <p>Height: {pokemonById.height}</p>
-      <p>Wight: {pokemonById.weight}</p>
-      <p>Types: {pokemonById.types?.map((type, index) => (index === 0 ? "" : ", ") + type)}</p>
+      <div>
+        <h1>{pokemonById.name}</h1>
+        <span>{pokemonById.id}</span>
+        <p>Types: {pokemonById.types?.map((type, index) => (index === 0 ? "" : ", ") + type)}</p>
+      </div>
+      <div className={detailStyles.imgContainer}>
+        <img src={pokemonById.image} alt={pokemonById.name}/>
+      </div>
+      <div className={detailStyles.tagsDetailLeft}>
+        <p><b>Life:</b> {pokemonById.life}</p>
+        <p><b>Attack:</b> {pokemonById.attack}</p>
+        <p><b>Defense:</b> {pokemonById.defense}</p>
+      </div>
+      <div className={detailStyles.tagsDetailRight}>
+        <p><b>Speed:</b> {pokemonById.speed}</p>
+        <p><b>Height:</b> {pokemonById.height}</p>
+        <p><b>Weight:</b> {pokemonById.weight}</p>
+      </div>
     </div>
   )
 }

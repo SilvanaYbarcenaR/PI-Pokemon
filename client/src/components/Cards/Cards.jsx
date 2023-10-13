@@ -8,7 +8,7 @@ const Cards = ({ pokemons, classCustomCards, classCustomCard }) => {
       {!pokemons?.length ? 
         <p className={CardsStyles.notFound}>No pokemons were found.</p> 
         :
-        pokemons?.map(({ id, name, image, types, attack, life, defense, speed, height, weight }) => {
+        pokemons?.map(({ id, name, image, types, attack, life, defense, speed, height, weight, created }) => {
           return (
             <Card
               key={id} 
@@ -22,6 +22,7 @@ const Cards = ({ pokemons, classCustomCards, classCustomCard }) => {
               speed={speed}
               height={height}
               weight={weight}
+              created={created}
               classCustomCard={classCustomCard}
             />
           )

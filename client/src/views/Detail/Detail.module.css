@@ -1,10 +1,59 @@
 .detailContainer {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 1em;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+  color: #ffffff;
   max-width: 60%;
-  margin: 3em auto 0;
+  margin: 6rem auto 0;
+  min-width: 20%;
+  min-height: 40rem;
   padding: 3em;
+  position: relative;
   text-align: center;
+  width: fit-content;
+}
+.detailContainer .detailTop {
+  font-size: 1.1rem;
+}
+.detailContainer .imgContainer {
+  background: #ffffff;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin: 3rem 0 1rem;
+  position: relative;
+  z-index: 2;
 }
 .detailContainer img {
-  max-width: 15em;
+  max-width: 25em;
+  min-height: 15rem;
+}
+.detailContainer .tagsDetailLeft {
+  left: -35%;
+  font-size: 1.4rem;
+  position: absolute;
+  text-align: left;
+  top: 35%;
+}
+.detailContainer .tagsDetailRight {
+  font-size: 1.4rem;
+  position: absolute;
+  right: -36%;
+  text-align: right;
+  top: 35%;
+}
+.detailContainer .tagsDetailLeft p {
+  background-color: #bf9aff;
+  border-radius: 3px;
+  box-shadow: 0 0 15px #0000003d;
+  color: #ffffff;
+  padding: 1rem 7rem 1rem 2rem;
+  margin: 3rem;
+}
+.detailContainer .tagsDetailRight p {
+  background-color: #7185f2;
+  border-radius: 3px;
+  box-shadow: 0 0 15px #0000003d;
+  color: #ffffff;
+  padding: 1rem 2rem 1rem 7rem;
+  margin: 3rem;
 }

@@ -73,6 +73,18 @@
   color: #ffffff;
   text-decoration: none;
 }
+.card .newLabel {
+  background: #ffffff;
+  border-radius: 4em;
+  color: #4CAF50;
+  font-size: 0.75rem;
+  font-weight: bold;
+  left: 10%;
+  padding: 0.4em;
+  top: 24%;
+  position: absolute;
+  z-index: 5;
+}
 .card img {
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;

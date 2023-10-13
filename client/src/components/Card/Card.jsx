@@ -2,11 +2,15 @@ import React from 'react';
 import cardStyles from '../Card/Card.module.css';
 import { NavLink } from 'react-router-dom';
 
-const Card = ({id, name, image, types, attack, life, defense, classCustomCard, speed, height, weight}) => {
+const Card = ({id, name, image, types, attack, life, defense, 
+  classCustomCard, speed, height, weight, created}) => {
   return (
     <div className={`${cardStyles.card} ${types && cardStyles[types[0]]} ${cardStyles[classCustomCard]}`}>
       <NavLink to={`/detail/${id}`}>
-        <div><img src={image} alt={name} loading="lazy"/></div>
+        <div className={cardStyles.topCard}>
+          {created && created === true && <div className={cardStyles.newLabel}>New</div>}
+          <img src={image} alt={name} loading="lazy"/>
+        </div>
         <div className={cardStyles.cardDetail}>
           <h2>{name}</h2>
           <div className={cardStyles.types}>{types.map((type, index) => <span key={index} className={cardStyles[type]}>{type}</span>)}</div>

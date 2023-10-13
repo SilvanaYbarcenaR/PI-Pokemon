@@ -15,6 +15,14 @@
   z-index: -1;
 }
 
+.App.detail::before {
+  background: #1c1534cf;
+}
+
+.App.detail .videoBg {
+  filter: blur(2px);
+}
+
 /* Video background */
 .videoBg {
   bottom: 0;
